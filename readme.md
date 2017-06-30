@@ -1,3 +1,3 @@
-#Twitter Guessing Thing Random
+Twitter Guessing Thing Random
 
-I like turtles
+I like turtles not
