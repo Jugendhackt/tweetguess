@@ -62,18 +62,24 @@ function insert(ret){
 
   mongoClient.connect(url, function(error, db){
 
-    db.collection('tweets').insertOne({
+    db.collection('tweets').update({
       name:ret.name,
       handle:ret.handle,
       id:ret.id,
       retweet_count:ret.retweet_count,
       text:ret.text,
       links:ret.links
-    }, function(err, res) {
-      if(error){
-        console.log(err);
-      }
-      db.close();
+    }, {
+      name:ret.name,
+      handle:ret.handle,
+      id:ret.id,
+      retweet_count:ret.retweet_count,
+      text:ret.text,
+      links:ret.links
+    },{
+      upsert: true
+    }).then(function(result){
+      db.close()
     });
   });
 }
