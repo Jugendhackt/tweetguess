@@ -47,10 +47,14 @@ $('.buttonz').click(function(i, item) {
     var elems = document.querySelectorAll(".buttonz");
     var index = 0, length = elems.length;
     document.getElementsByTagName("body")[0].style.cursor = "auto";
-    $('.buttonz').not(':eq(' + tweetguess.right_answer + ')').fadeTo("fast", 0.2);
-    $('.buttonz:eq(' + tweetguess.right_answer + ')').animate({
-        backgroundColor: '#4099ff'
-    }, 1000);
+    $.each(tweetguess.persons, function(i, item) {
+        if(tweetguess.persons[i] == tweetguess.right_answer){
+            $('.buttonz').not(':eq(' + i + ')').fadeTo("fast", 0.2);
+            $('.buttonz:eq(' + i + ')').animate({
+                backgroundColor: '#4099ff'
+            }, 1000);
+        }
+    })
     stringo = i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,"");
     if(tweetguess.right_answer == stringo){
         $("#status").css('color', '#3ecd15');
@@ -87,7 +91,7 @@ function startTimer(duration, display) {
         }
 
 
-    };
+    }
     // we don't want to wait a full second before the timer starts
     timer();
     setInterval(timer, 1000);
@@ -107,15 +111,16 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-function score(){
+function scoreup(){
   var flag = false;
   for(var i=0; i<tweetguess.persons.length; i++) {
-	if(tweetguess.persons[i] == tweetguess.right_answer){score = (score + 100);}
+	if(tweetguess.persons[i] == tweetguess.right_answer)
+        {score = (score + 100);}
     }
   }
 
 
 load();
-score();
+scoreup();
 
 });
