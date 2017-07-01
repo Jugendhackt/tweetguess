@@ -11,6 +11,12 @@ Für jeden Tweet hat man 30 Sekunden den Verfasser zu erraten. Ist die Antwort r
 ## Ziel
 Spielerisch auf fragwürdigen Content aufmerksam machen, der heutzutage überall auf Socialmedia Plattformen gepostet wird und der Einfluss den er auf uns hat.
 
+## Tech
+Für Frontend wurde das Bootstrap Framework benutzt.
+Die Tweets mit den meisten Retweets von, von uns ausgewählten Usern, werden alle 15 min über die Twitter-API in eine MogoDB geladen.
+Dann wird der Tweet und die Auswahlmöglichkeiten aus der Datenbank ans Frontend geschickt. Die Antwort wird zurückgeschickt und abgeglichen.
+Ist sie richtig, wird der Timer gestoppt und die Punkte gutgeschrieben.
+
 ## Über das Projekt
 Dieses Projekt ist im Rahmen des Hackathons Jugendhackt in Frankfurt 2017 entstanden.
 Unter dem Thema "Echt oder Falsch" ist dies innerhalb etwa einem Tag entstanden.
@@ -20,9 +26,3 @@ Die 7 Autoren Moritz Beck, Peter Heynmöller, Baran Peters, Simon Pelz, Tobias K
 
 ## Lizenz
 Jeder darf alles.
-
-## Tech
-Für Frontend wurde das Bootstrap Framework benutzt.
-Die Tweets mit den meisten Retweets von, von uns ausgewählten Usern, werden alle 15 min über die Twitter-API in eine MogoDB geladen.
-Dann wird der Tweet und die Auswahlmöglichkeiten aus der Datenbank ans Frontend geschickt. Die Antwort wird zurückgeschickt und abgeglichen.
-Ist sie richtig, wird der Timer gestoppt und die Punkte gutgeschrieben.
