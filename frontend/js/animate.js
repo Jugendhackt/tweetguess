@@ -51,6 +51,8 @@ function startTimer(duration, display) {
             // example 05:00 not 04:59
             start = Date.now() + 1000;
         }
+
+        
     };
     // we don't want to wait a full second before the timer starts
     timer();
