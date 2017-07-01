@@ -56,7 +56,7 @@
         <div class="row">
           <div class="col-sm-1">
           </br></br>
-          <font color=#1da1f2><h2>Tweetguesser</h2></font>
+          <font color=#4099ff><h2>Tweetguesser</h2></font>
           </div>
           <div class="col-sm-10"></div>
           <div class="col-sm-1">
@@ -72,10 +72,10 @@
           <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-          <div class="panel panel-default text-left animated zoomIn">
+          <div class="panel panel-default text-left">
             <div class="panel-body" id="twtContainer">
               <div class="text-center">
-              <h2><font color=#1da1f2><<</font> If Republican Senators are unable to pass what they are working on now, they should immediately REPEAL, and then REPLACE at a later date! <font color=#1da1f2>>></font></h2>
+              <h2><font color=#4099ff><<</font> If Republican Senators are unable to pass what they are working on now, they should immediately REPEAL, and then REPLACE at a later date! <font color=#4099ff>>></font></h2>
             </div>
             </div>
           </div>
@@ -92,10 +92,10 @@
     <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-4">
-    <div class="panel panel-default animated slideInLeft" title="Answer No.1">
-      <div class="panel-body" id="button">
+    <div id="anim1 "class="panel panel-default animated slideInLeft">
+      <div class="panel-body buttonz" id="panel1">
         <div class="text-center">
-        <h5>Button 1</h5>
+        <h5 id="answer1">Button 1</h5>
       </div>
       </div>
     </div>
@@ -108,10 +108,10 @@
 
 
 <div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInRight" title="Answer No.2">
-  <div class="panel-body" id="button">
+<div  id="anim2" class="panel panel-default text-left animated slideInRight">
+  <div class="panel-body buttonz" id="panel2">
     <div class="text-center">
-    <h5>Button 2</h5>
+    <h5 id="answer2">Button 2</h5>
   </div>
   </div>
 </div>
@@ -127,10 +127,10 @@
 <div class="row">
 <div class="col-sm-2"></div>
 <div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInLeft" title="Answer No.3">
-  <div class="panel-body" id="button">
+<div id="anim3" class="panel panel-default text-left animated slideInLeft">
+  <div class="panel-body buttonz" id="panel3">
     <div class="text-center">
-    <h5>Button 3</h5>
+    <h5 id="answer3">Button 3</h5>
   </div>
   </div>
 </div>
@@ -143,10 +143,10 @@
 
 
 <div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInRight" title="Answer No.4">
-  <div class="panel-body" id="button">
+<div id="anim4" class="panel panel-default text-left animated slideInRight">
+  <div class="panel-body buttonz" id="panel4">
     <div class="text-center">
-    <h5>Button 4</h5>
+    <h5 id="answer4">Button 4</h5>
 </div>
 </div>
 </div>
@@ -154,11 +154,17 @@
 <div class="col-sm-2"></div>
 </div>
 </div>
+<div class="container">
+  <div class="text-center">
+<font color=#1da1f2><h4> Time left:<span style="display:inline" id="clock"></span>s  |  Score: <span style="display:inline" id="score"></span> </h4></font>
+  </div>
+</div>
 
         <!-- /.row -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
