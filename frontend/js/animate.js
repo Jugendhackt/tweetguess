@@ -1,7 +1,7 @@
 $( document ).ready(function() {
-("twtContainer").hover(function(){
-    $('twtContainer').addClass('shadow');
+$("#twtContainer").hover(function(){
+    $('#twtContainer').addClass('shadow-blue');
     }, function(){
-        $('twtContainer').removeClass('shadow');
+        $('#twtContainer').removeClass('shadow-blue')
 });
 });
