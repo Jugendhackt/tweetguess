@@ -12,7 +12,7 @@ Für jeden Tweet hat man 30 Sekunden den Verfasser zu erraten. Ist die Antwort r
 Spielerisch auf fragwürdigen Content aufmerksam machen, der heutzutage überall auf Socialmedia Plattformen gepostet wird.
 
 ## Tech
-Für Frontend wurde das Bootstrap Framework benutzt.
+Für das Frontend wurde das Bootstrap und jQuery Framework benutzt.
 Die Tweets mit den meisten Retweets von, von uns ausgewählten Usern, werden alle 15 min über die Twitter-API in eine MongoDB geladen.
 Dann wird der Tweet und die Auswahlmöglichkeiten aus der Datenbank ans Frontend geschickt. Die Antwort wird zurückgeschickt und abgeglichen.
 Ist die Antwort richtig, wird der Timer gestoppt und die Punkte gutgeschrieben.

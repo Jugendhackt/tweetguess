@@ -12,7 +12,7 @@ You have 30 seconds to guess who wrote the tweet. If your right, you get  one po
 Playfully raise awareness about weird content posted all over socialmedia.
 
 ## Tech
-The frontend is based on the Bootstrap framework.
+The frontend is based on the Bootstrap and jQuery framework.
 The most retweeted tweets of Users, chosen by us, are fetched by the Twitter-API every 15 min and loaded into a MongoDB.
 From there, the frontend gets the tweet and according options.The answer is sent back and checked.
 If the answer is right, ther timer is stopped and points credited.
