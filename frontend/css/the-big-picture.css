@@ -13,3 +13,19 @@ body {
 .full {
   background-color: #fff
 }
+.shadow{
+    -moz-box-shadow: 3px 3px 4px #ccc;
+    -webkit-box-shadow: 3px 3px 4px #ccc;
+    box-shadow: 3px 3px 4px #ccc; /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')"; /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 135, Color = '#cccccc');
+}
+.shadow-blue
+{--box-shadow-color: #1da1f2;
+
+    -moz-box-shadow: 3px 3px 4px var(--box-shadow-color);
+    -webkit-box-shadow: 3px 3px 4px var(--box-shadow-color);
+    box-shadow: 3px 3px 4px var(--box-shadow-color); /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')"; /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 135, Color = '#cccccc');
+}
