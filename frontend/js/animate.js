@@ -49,7 +49,8 @@ $('.buttonz').click(function(i, item) {
     $('.buttonz:eq(' + tweetguess.right_answer + ')').animate({
         backgroundColor: '#4099ff'
     }, 1000);
-    if($('.buttonz:eq(' + tweetguess.right_answer + ')')[0].id == i.currentTarget.id){
+    stringo = i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,"");
+    if(tweetguess.right_answer == stringo{
         $("#status").css('color', '#3ecd15');
         $("#status").html("Right!")
     } else {
