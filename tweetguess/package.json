@@ -11,9 +11,10 @@
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "jade": "~1.11.0",
-    "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2",
     "kerberos": "~0.0.17",
-    "mongodb": "~2.0.33"
+    "mongodb": "~2.0.33",
+    "morgan": "~1.8.1",
+    "oauth": "^0.9.15",
+    "serve-favicon": "~2.4.2"
   }
 }
