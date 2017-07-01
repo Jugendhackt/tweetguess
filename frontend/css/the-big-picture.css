@@ -14,18 +14,22 @@ body {
   background-color: #fff
 }
 .shadow{
-    -moz-box-shadow: 3px 3px 4px #ccc;
-    -webkit-box-shadow: 3px 3px 4px #ccc;
-    box-shadow: 3px 3px 4px #ccc; /* For IE 8 */
+
+}
+
+#button:hover {
+	--box-shadow-color: #1da1f2; // for changing the shadow color
+	-moz-box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
+    -webkit-box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
+     box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')"; /* For IE 5.5 - 7 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 135, Color = '#cccccc');
 }
-.shadow-blue
-{--box-shadow-color: #1da1f2;
-
-    -moz-box-shadow: 3px 3px 4px var(--box-shadow-color);
-    -webkit-box-shadow: 3px 3px 4px var(--box-shadow-color);
-    box-shadow: 3px 3px 4px var(--box-shadow-color); /* For IE 8 */
+#twtContainer:hover {
+	--box-shadow-color: #1da1f2; // for changing the shadow color
+	-moz-box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
+    -webkit-box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
+     box-shadow: 0 2px 4px 0 var(--box-shadow-color), 0 3px 10px 0 var(--box-shadow-color);
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')"; /* For IE 5.5 - 7 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 135, Color = '#cccccc');
 }
