@@ -24,10 +24,10 @@ function valitest(i){
     var b = ["#panel1", "#panel2", "#panel3", "#panel4"];
     $.each(a, function(i, item) {
       if($(item).html() == "Button 1"){
-          $( b[i] ).animate({
-          backgroundColor: "#00ff00",
+          $(b[i]).animate({
+          backgroundColor: "#4099ff;",
           color: "#000",
-        }, 1000 );
+      }, 1000 );
           if($(item).html() == i){
               console.log("right!");
           } else{
@@ -35,11 +35,11 @@ function valitest(i){
           }
       } else {
           //verblassen
-          $(item).fadeTo("fast", 0.4);
-          $( b[i] ).animate({
-          backgroundColor: "#ff0000",
+          $(item).fadeTo("fast", 0.2);
+          /*$(b[i]).animate({
+          backgroundColor: "",
           color: "#000",
-        }, 1000 );
+      }, 1000 ); */
       }
 });
 }
