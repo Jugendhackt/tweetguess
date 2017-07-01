@@ -39,34 +39,7 @@ http.send(params);
  'right_answer': 'Mark Zuckerberg'
  };
 
- var doneTheStuff;
-$('.buttonz').click(function (i, item) {
-    if (!doneTheStuff) {
-      doneTheStuff = true;
-    $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
-    console.log(i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,""));
-    var elems = document.querySelectorAll(".buttonz");
-    var index = 0, length = elems.length;
-    document.getElementsByTagName("body")[0].style.cursor = "auto";
-    stringo = i.currentTarget.innerText.replace(/(\r\n|\n|\r)/gm,"");
-    $.each(tweetguess.persons, function(i, item) {
-        if(tweetguess.persons[i] == tweetguess.right_answer){
-            $('.buttonz').not(':eq(' + i + ')').fadeTo("fast", 0.2);
-            $('.buttonz:eq(' + i + ')').animate({
-                backgroundColor: '#4099ff'
-            }, 1000);
-        }
-    })
-    if(tweetguess.right_answer == stringo){
-        $("#status").css('color', '#3ecd15');
-        $("#status").html("Right!")
-    } else {
-        $("#status").css('color', '#c50e14');
-        $("#status").html("Wrong!")
-    }
-    return stringo;
-    }
-});
+
 function startTimer(duration, display) {
     var start = Date.now(),
         diff,
@@ -90,10 +63,45 @@ function startTimer(duration, display) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
             start = Date.now() + 1000;
+        return seconds;
         }
-
-
     }
+
+    var doneTheStuff;
+   $('.buttonz').click(function (i, item) {
+       if (!doneTheStuff) {
+         doneTheStuff = true;
+       $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
+       console.log(i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,""));
+       var elems = document.querySelectorAll(".buttonz");
+       var index = 0, length = elems.length;
+       document.getElementsByTagName("body")[0].style.cursor = "auto";
+       stringo = i.currentTarget.innerText.replace(/(\r\n|\n|\r)/gm,"");
+       $.each(tweetguess.persons, function(i, item) {
+           if(tweetguess.persons[i] == tweetguess.right_answer){
+               $('.buttonz').not(':eq(' + i + ')').fadeTo("fast", 0.2);
+               $('.buttonz:eq(' + i + ')').animate({
+                   backgroundColor: '#4099ff'
+               }, 1000);
+           }
+       })
+       if(tweetguess.right_answer == stringo){
+           $("#status").css('color', '#3ecd15');
+           $("#status").html("Right!")
+
+           var n = display.textContent.lastIndexOf(':');
+           var result = display.textContent.substring(n + 1);
+           score = (score + (100 - (60/result)));
+           score = Math.round(score);
+           $('#score').text(score);
+       } else {
+           $("#status").css('color', '#c50e14');
+           $("#status").html("Wrong!")
+       }
+       return stringo;
+       }
+   });
+
     // we don't want to wait a full second before the timer starts
     timer();
     setInterval(timer, 1000);
@@ -113,16 +121,8 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-function scoreStat(){
-	if(tweetguess.right_answer == stringo){
-    score = (score + 100);
-    $('#score').text('test');
-
-    }
-  }
-
 
 load();
-scoreStat();
+
 
 });
