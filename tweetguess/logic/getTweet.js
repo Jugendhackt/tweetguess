@@ -1,24 +1,33 @@
-describe('OAuth2',function(){
-  var OAuth = require('oauth');
+// example
+// getTweet("marenz_1", function(res, code) {
+// 	console.log(code + ": " + res);
+// });
+var getTweet = function(userName, callback) {
+	var OAuth = require('oauth').OAuth2;
 
-   it('gets bearer token', function(done){
-     var OAuth2 = OAuth.OAuth2;
-     var consumerKey = 'your key';
-     var consumerSecret = 'your secret';
+	var oauth = new OAuth('SjzHdKhqr5zk4Cbm3ohZASYwY',
+		'xkhBw1SQ7ETkZrixgglsVPc8cyFQuuyZz1jW0Fm81SF87DY8DX',
+		'https://api.twitter.com/',
+		null,
+		'oauth2/token',
+		null
+	);
 
-     var oauth2 = new OAuth2(server.config.keys.twitter.consumerKey,
-       twitterConsumerSecret,
-       'https://api.twitter.com/',
-       null,
-       'oauth2/token',
-       null);
-
-     oauth2.getOAuthAccessToken(
-       '',
-       {'grant_type':'client_credentials'},
-       function (e, access_token, refresh_token, results){
-       console.log('bearer: ',access_token);
-       done();
-     });
-   }
- });
+	oauth.getOAuthAccessToken('',
+		{'grant_type':'client_credentials'},
+		function (e, access_token, refresh_token, results) {
+			oauth._useAuthorizationHeaderForGET = true;
+			console.log(access_token);
+			oauth.get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + userName + '&count=200&exclude_replies=true&include_rts=false',
+				access_token,
+				function(ret, res, resp) {
+					if (ret != null) {
+						callback(null, ret.statusCode);
+					} else {
+						callback(res, resp.statusCode);
+					}
+				}
+			);
+		}
+	);
+}
