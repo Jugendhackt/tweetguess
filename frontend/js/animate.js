@@ -10,7 +10,7 @@ $(document).ready(function(){
 //};
 // if ajax request was not made tweetguess shall be undefined
 var score = '';
-
+var stringo = '';
 
 var http = new XMLHttpRequest();
 var url = "Petersip/getTweet";
@@ -40,7 +40,7 @@ http.send(params);
  };
 
  var doneTheStuff;
-$('.buttonz').click(function(i, item) {
+$('.buttonz').click(function (i, item) {
     if (!doneTheStuff) {
       doneTheStuff = true;
     $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
@@ -59,6 +59,7 @@ $('.buttonz').click(function(i, item) {
         $("#status").css('color', '#c50e14');
         $("#status").html("Wrong!")
     }
+    return stringo;
     }
 });
 function startTimer(duration, display) {
@@ -107,15 +108,16 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-function score(){
-  var flag = false;
-  for(var i=0; i<tweetguess.persons.length; i++) {
-	if(tweetguess.persons[i] == tweetguess.right_answer){score = (score + 100);}
+function scoreStat(){
+	if(tweetguess.right_answer == done.stringo){
+    score = (score + 100);
+    $('#score').text(score);
+
     }
   }
 
 
 load();
-score();
+scoreStat();
 
 });
