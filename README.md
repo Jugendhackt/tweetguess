@@ -1,9 +1,11 @@
-## Twitter Guessing Thing Random
-
-I like turtles not
-I like trains
-
+# Tweetguesser
+The twitter guessing game
 ------------------------------------------------------------------
-# ToDo:
+## Idea
+A tweet and 4 popular twitterusers are shown of which only one posted it,
+know you are to decide which one did.
 
--Hier könnte IHRE Werbung stehen.
+## Score System
+You have 30 seconds to guess who wrote the tweet. If your right, you get  one point for each second left on the counter.
+
+##
