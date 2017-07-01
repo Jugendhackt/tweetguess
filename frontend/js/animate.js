@@ -112,23 +112,18 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-<<<<<<< HEAD
 function scoreStat(){
-	if(tweetguess.right_answer == done.stringo){
+	if(tweetguess.right_answer == stringo){
     score = (score + 100);
-    $('#score').text(score);
+    $('#score').text('test');
 
-=======
 
->>>>>>> 9112bb8cf17f772bcc2a6b6602ca9930fe8eeddb
     }
   }
 
 
 load();
-<<<<<<< HEAD
 scoreStat();
-=======
->>>>>>> 9112bb8cf17f772bcc2a6b6602ca9930fe8eeddb
+
 
 });
