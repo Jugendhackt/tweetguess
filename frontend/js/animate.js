@@ -4,4 +4,5 @@ $("#twtContainer").hover(function(){
     }, function(){
         $('#twtContainer').removeClass('shadow-blue')
 });
+$(".heading").fadeIn("slow");
 });
