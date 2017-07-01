@@ -25,4 +25,4 @@ Unter dem Thema "Echt oder Falsch" ist dies innerhalb etwa einem Tag entstanden.
 Die 7 Autoren [Moritz Beck](https://github.com/blitze299), [Peter Heynmöller](https://github.com/PeterHeynmoeller), [Baran Peters](https://github.com/NightScap3), [Simon Pelz](https://github.com/SsimmmonN), [Tobias Klein](https://github.com/t0biium), [Marenz Schmidl](https://github.com/marenz2569) und [Paul Goldschmidt](https://github.com/PaulGoldschmidt) mit verschiedenen Interessen und Fähigkeitsstufen, haben ihre verschiedenen Fähigkeiten eingesetzt, um zu diesem Ergebnis zu kommen.
 
 ## Lizenz
-Jeder darf alles.
+Der Code darf gerne modifiziert und benutzt werden.
