@@ -1,3 +1,4 @@
+$(document).ready(function(){
 // content of the ajax request
 //var tweetguess = {
 //'tweet': 'bäume sind blau',
@@ -9,15 +10,31 @@
 //};
 // if ajax request was not made tweetguess shall be undefined
 
+var http = new XMLHttpRequest();
+var url = "Petersip/getTweet";
+var params = "";
+http.open("POST", url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+
+
  var tweetguess = {
- 'tweet': 'bäume sind blau',
+ 'tweet': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et mahezh',
  'persons': [
-     'mark zuckerberg',
-     'm2',
-     'm3',
-     'm4'
+     'Mark Zuckerberg',
+     'Donald Trump',
+     'Angela Merkel',
+     'Frauke Petry'
  ],
- 'right_answer': 1
+ 'right_answer': 'mark zuckerberg'
  };
 
  var doneTheStuff;
@@ -80,9 +97,13 @@ window.onload = function () {
     startTimer(fiveMinutes, display);
 };
 
-
-
-$(document).ready(function(){
-  $('#score').text("0");
+function load (){
+  $('#tweetDisplay').text(tweetguess.tweet);
+  $('#answer0').text(tweetguess.persons[0]);
+  $('#answer1').text(tweetguess.persons[1]);
+  $('#answer2').text(tweetguess.persons[2]);
+  $('#answer3').text(tweetguess.persons[3]);
+}
+load();
 
 });
