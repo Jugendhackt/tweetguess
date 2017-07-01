@@ -6,8 +6,7 @@ var processTweet = require('./processTweet');
 var getTweet = require('./getTweet');
 
 //module.exports = {
-  //update : function(){
-  function update(){
+//  update : function(){
     var mongoClient = mongo.MongoClient;
 
     var url = "mongodb://localhost:27017/local";
@@ -49,8 +48,7 @@ var getTweet = require('./getTweet');
         });
       }
     });
-  }
-  update();
+//  }
 //};
 
 function insert(ret){
@@ -60,26 +58,29 @@ function insert(ret){
 
   var sources = [{}];
 
-  mongoClient.connect(url, function(error, db){
+  setTimeout(function(){
 
-    db.collection('tweets').update({
-      name:ret.name,
-      handle:ret.handle,
-      id:ret.id,
-      retweet_count:ret.retweet_count,
-      text:ret.text,
-      links:ret.links
-    }, {
-      name:ret.name,
-      handle:ret.handle,
-      id:ret.id,
-      retweet_count:ret.retweet_count,
-      text:ret.text,
-      links:ret.links
-    },{
-      upsert: true
-    }).then(function(result){
-      db.close()
+    mongoClient.connect(url, function(error, db){
+
+      db.collection('tweets').update({
+        name:ret.name,
+        handle:ret.handle,
+        id:ret.id,
+        retweet_count:ret.retweet_count,
+        text:ret.text,
+        links:ret.links
+      }, {
+        name:ret.name,
+        handle:ret.handle,
+        id:ret.id,
+        retweet_count:ret.retweet_count,
+        text:ret.text,
+        links:ret.links
+      },{
+        upsert: true
+      }).then(function(result){
+        db.close()
+      });
     });
-  });
+  }, 500);
 }
