@@ -9,6 +9,8 @@ $(document).ready(function(){
 //'right_answer': 3
 //};
 // if ajax request was not made tweetguess shall be undefined
+var score = '';
+
 
 var http = new XMLHttpRequest();
 var url = "Petersip/getTweet";
@@ -34,7 +36,7 @@ http.send(params);
      'Angela Merkel',
      'Frauke Petry'
  ],
- 'right_answer': 'mark zuckerberg'
+ 'right_answer': 'Mark Zuckerberg'
  };
 
  var doneTheStuff;
@@ -103,6 +105,16 @@ function load (){
   $('#answer2').text(tweetguess.persons[2]);
   $('#answer3').text(tweetguess.persons[3]);
 }
+
+function score (){
+  var flag = false;
+  for(var i=0; i<tweetguess.persons.length; i++) {
+	if(tweetguess.persons[i] == tweetguess.right_answer){score = (score + 100);}
+}
+}
+
+
 load();
+score();
 
 });
