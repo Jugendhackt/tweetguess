@@ -52,7 +52,7 @@ $('.buttonz').click(function(i, item) {
         backgroundColor: '#4099ff'
     }, 1000);
     stringo = i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,"");
-    if(tweetguess.right_answer == stringo{
+    if(tweetguess.right_answer == stringo){
         $("#status").css('color', '#3ecd15');
         $("#status").html("Right!")
     } else {
@@ -99,7 +99,7 @@ window.onload = function () {
     startTimer(fiveMinutes, display);
 };
 
-function load (){
+function load(){
   $('#tweetDisplay').text(tweetguess.tweet);
   $('#answer0').text(tweetguess.persons[0]);
   $('#answer1').text(tweetguess.persons[1]);
@@ -107,12 +107,12 @@ function load (){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-function score (){
+function score(){
   var flag = false;
   for(var i=0; i<tweetguess.persons.length; i++) {
 	if(tweetguess.persons[i] == tweetguess.right_answer){score = (score + 100);}
-}
-}
+    }
+  }
 
 
 load();
