@@ -42,7 +42,6 @@ $('.buttonz').click(function(i, item) {
     if (!doneTheStuff) {
       doneTheStuff = true;
     $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
-    console.log(i);
     var elems = document.querySelectorAll(".buttonz");
     var index = 0, length = elems.length;
     document.getElementsByTagName("body")[0].style.cursor = "auto";
@@ -50,7 +49,7 @@ $('.buttonz').click(function(i, item) {
     $('.buttonz:eq(' + tweetguess.right_answer + ')').animate({
         backgroundColor: '#4099ff'
     }, 1000);
-    if($('.buttonz:eq(' + tweetguess.right_answer + ')') == i.currentTarget){
+    if($('.buttonz:eq(' + tweetguess.right_answer + ')')[0].id == i.currentTarget.id){
         $("#status").css('color', '#3ecd15');
         $("#status").html("Right!")
     } else {
