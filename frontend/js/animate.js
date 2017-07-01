@@ -44,3 +44,20 @@ function valitest(i){
       }
 });
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function timer(){
+  var start = "60";
+  while (start > 0) {
+    start = start - 1;
+    sleep(1000);
+    return start;
+  }
+};
+
+$(document).ready(function(){
+  $('#score').text("999");
+});
