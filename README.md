@@ -1,9 +1,4 @@
-## Twitter Guessing Thing Random
-
-I like turtles not
-I like trains
-
+# Tweetguesser
+>The twitter guessing game
 ------------------------------------------------------------------
-# ToDo:
-
--Hier könnte IHRE Werbung stehen.
+##Idea
