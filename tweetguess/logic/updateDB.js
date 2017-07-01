@@ -19,11 +19,11 @@ var getTweet = require('./getTweet');
         console.log("Unable to connect to database, error: ", error);
       }else {
 
+        var tweets = [];
+
         db.collection('sources').find({}).toArray(function(error, result){
           if(error){
             console.log("Unable to access collection!");
-
-            res.send(error);
           }else if (result.length) {
             for (var i = 0; i < result.length; i += 1){
               console.log(result[i].name);
@@ -32,15 +32,7 @@ var getTweet = require('./getTweet');
                   res = JSON.parse(res);
                   for (var i in res) {
                     processTweet.processTweet(res[i], function(ret){
-
-                      db.collection('tweets').insertOne({
-                        name:ret.name,
-                        handle:ret.handle,
-                        id:ret.id,
-                        retweet_count:ret.retweet_count,
-                        text:ret.text,
-                        links:ret.links
-                      }, function(err, res) {});
+                      insert(ret);
                     });
                   }
                 }else {
@@ -48,6 +40,7 @@ var getTweet = require('./getTweet');
                 }
               });
             }
+
           }else {
             console.log("No documents found!");
           }
@@ -61,5 +54,26 @@ var getTweet = require('./getTweet');
 //};
 
 function insert(ret){
+  var mongoClient = mongo.MongoClient;
 
+  var url = "mongodb://localhost:27017/local";
+
+  var sources = [{}];
+
+  mongoClient.connect(url, function(error, db){
+
+    db.collection('tweets').insertOne({
+      name:ret.name,
+      handle:ret.handle,
+      id:ret.id,
+      retweet_count:ret.retweet_count,
+      text:ret.text,
+      links:ret.links
+    }, function(err, res) {
+      if(error){
+        console.log(err);
+      }
+      db.close();
+    });
+  });
 }
