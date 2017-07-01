@@ -1,14 +1,13 @@
 // content of the ajax request
-var tweetguess = {
-'tweet': 'bäume sind blau',
-'persons': [
-    mark zuckerberg,
-    ...
-],
-'right_answer': 3
-};
+//var tweetguess = {
+//'tweet': 'bäume sind blau',
+//'persons': [
+//    mark zuckerberg,
+//    ...
+//],
+//'right_answer': 3
+//};
 // if ajax request was not made tweetguess shall be undefined
- */
 
  var tweetguess = {
  'tweet': 'bäume sind blau',
