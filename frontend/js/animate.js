@@ -44,9 +44,11 @@ $('.buttonz').click(function(i, item) {
     if (!doneTheStuff) {
       doneTheStuff = true;
     $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
+    console.log(i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,""));
     var elems = document.querySelectorAll(".buttonz");
     var index = 0, length = elems.length;
     document.getElementsByTagName("body")[0].style.cursor = "auto";
+    stringo = i.currentTarget.innerText.replace(/(\r\n|\n|\r)/gm,"");
     $.each(tweetguess.persons, function(i, item) {
         if(tweetguess.persons[i] == tweetguess.right_answer){
             $('.buttonz').not(':eq(' + i + ')').fadeTo("fast", 0.2);
@@ -55,7 +57,6 @@ $('.buttonz').click(function(i, item) {
             }, 1000);
         }
     })
-    stringo = i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,"");
     if(tweetguess.right_answer == stringo){
         $("#status").css('color', '#3ecd15');
         $("#status").html("Right!")
@@ -111,7 +112,7 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-function scoreup(){
+function scoreStat(){
   var flag = false;
   for(var i=0; i<tweetguess.persons.length; i++) {
 	if(tweetguess.persons[i] == tweetguess.right_answer)
@@ -121,6 +122,6 @@ function scoreup(){
 
 
 load();
-scoreup();
+scoreStat();
 
 });
