@@ -89,7 +89,7 @@ function startTimer(duration, display) {
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
-            failure();
+            timeFailure();
             clearInterval(intval);
 
         }
@@ -135,6 +135,13 @@ function failure(){
     $("#status").css('color', '#c50e14');
     $("#status").addClass("tada animated");
     $("#status").html("Wrong!")
+
     doneTheStuff = true;
+}
+function timeFailure(){
+    $("#status").css('color', '#c50e14');
+    $("#status").addClass("tada animated");
+    $("#status").html("Wrong!")
+    $('.buttonz').fadeTo("fast", 0.2);
 }
 });
