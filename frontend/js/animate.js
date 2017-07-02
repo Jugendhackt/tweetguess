@@ -28,7 +28,7 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 http.send(params);
 
  var tweetguess = {
- 'tweet': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et mahezh',
+ 'tweet': 'Lorem ipsum dolor sit amet, consectetu Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et mahezh',
  'persons': [
      'Mark Zuckerberg',
      'Donald Trump',
