@@ -59,7 +59,12 @@ $('.buttonz').click(function (i, item) {
     })
     if(tweetguess.right_answer == stringo){
         sucess();
-        scoreStat();
+        display = document.querySelector('#score');
+        var n = display.textContent.lastIndexOf(':');
+         var result = display.textContent.substring(n + 1);
+         score = (score + (100 - (60/result)));
+         score = Math.round(score);
+         $('#score').text(score);
     } else {
         failure();
     }
@@ -84,7 +89,7 @@ function startTimer(duration, display) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
+        display.textContent = minutes + ":" + seconds + " ";
 
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
@@ -93,6 +98,14 @@ function startTimer(duration, display) {
             clearInterval(intval);
 
         }
+        if(seconds < 10){
+           $(display).addClass("timer_red");
+           $(display).addClass("blinker");
+       }
+else {
+  $(display).removeClass("timer_red");
+  $(display).removeClass("blinker");
+}
 
 
     }
@@ -113,13 +126,6 @@ function load(){
   $('#answer2').text(tweetguess.persons[2]);
   $('#answer3').text(tweetguess.persons[3]);
 }
-function scoreStat(){
-	if(tweetguess.right_answer == stringo){
-    score = (score + 100);
-    $('#score').text(score);
-
-    }
-  }
 
 
 $(document).bind('keypress', "a+ctrl", function(){
@@ -129,19 +135,20 @@ $(document).bind('keypress', "a+ctrl", function(){
 function sucess(){
     $("#status").css('color', '#3ecd15');
     $("#status").addClass("tada animated");
-    $("#status").html("Right!");
+    $("#status").html("<b>Right!</b>");
 }
 function failure(){
     $("#status").css('color', '#c50e14');
     $("#status").addClass("tada animated");
-    $("#status").html("Wrong!")
+    $("#status").html("<b>Wrong!</b>")
 
     doneTheStuff = true;
 }
 function timeFailure(){
     $("#status").css('color', '#c50e14');
     $("#status").addClass("tada animated");
-    $("#status").html("Wrong!")
+    $("#status").html("<b>Too long!</b>!")
     $('.buttonz').fadeTo("fast", 0.2);
+        doneTheStuff = true;
 }
 });
