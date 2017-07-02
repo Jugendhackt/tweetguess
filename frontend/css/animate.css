@@ -51,16 +51,7 @@ float: right;
     transform: translate3d(0,-4px,0);
   }
 }
-.timer_red{
-  color:red;
-}
-.blinker {
-  animation: blinker 1s linear infinite;
-}
 
-@keyframes blinker {
-  50% { opacity: 0; }
-}
 .bounce {
   animation-name: bounce;
   transform-origin: center bottom;
