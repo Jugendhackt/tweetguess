@@ -72,7 +72,8 @@ function startTimer(duration, display) {
    $('.buttonz').click(function (i, item) {
        if (!doneTheStuff) {
          doneTheStuff = true;
-       $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
+         console.log(i);
+       $(i.currentTarget).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
        console.log(i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,""));
        var elems = document.querySelectorAll(".buttonz");
        var index = 0, length = elems.length;
@@ -121,11 +122,8 @@ function load(){
   $('#answer1').text(tweetguess.persons[1]);
   $('#answer2').text(tweetguess.persons[2]);
   $('#answer3').text(tweetguess.persons[3]);
+  load();
 }
-
-
-load();
-
 
 
 $(document).ready(function() {
@@ -169,5 +167,9 @@ $(document).ready(function() {
 			});
 		});
 	});
+
 });
+});
+$(document).bind('keydown', 'Ctrl+a', function(){
+   $("#tweetDisplay").addClass("rainbow");
 });
