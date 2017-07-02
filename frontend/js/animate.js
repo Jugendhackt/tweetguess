@@ -57,6 +57,15 @@ function startTimer(duration, display) {
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
+        if(seconds < 25){
+            $(display).addClass("timer_red");
+            $(display).addClass("blinker");
+        }
+ else {
+   $(display).removeClass("timer_red");
+   $(display).removeClass("blinker");
+
+ }
 
         display.textContent = minutes + ":" + seconds;
 
