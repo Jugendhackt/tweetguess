@@ -70,6 +70,7 @@ function startTimer(duration, display) {
 
     var doneTheStuff;
    $('.buttonz').click(function (i, item) {
+       clearTimeout(t);
        if (!doneTheStuff) {
          doneTheStuff = true;
          console.log(i);
@@ -85,7 +86,7 @@ function startTimer(duration, display) {
                $('.buttonz:eq(' + i + ')').animate({
                    backgroundColor: '#4099ff'
                }, 1000);
-           }
+           }S
        })
        if(tweetguess.right_answer == stringo){
            $("#status").css('color', '#3ecd15');
