@@ -27,7 +27,6 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 }
 http.send(params);
 
-
  var tweetguess = {
  'tweet': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et mahezh',
  'persons': [
@@ -42,6 +41,7 @@ http.send(params);
  var doneTheStuff;
 $('.buttonz').click(function (i, item) {
     if (!doneTheStuff) {
+        clearInterval(intval);
       doneTheStuff = true;
     $(i.currentTarget.childNodes[1].childNodes[1]).append("<span class='glyphicon glyphicon-ok blue' style='padding-left: 6px'> </span>")
     console.log(i.currentTarget.innerText.toLowerCase().replace(/(\r\n|\n|\r)/gm,""));
@@ -58,17 +58,15 @@ $('.buttonz').click(function (i, item) {
         }
     })
     if(tweetguess.right_answer == stringo){
-        $("#status").css('color', '#3ecd15');
-        $("#status").addClass("tada animated");
-        $("#status").html("Right!");
+        sucess();
         scoreStat();
     } else {
-        $("#status").css('color', '#c50e14');
-        $("#status").html("Wrong!")
+        failure();
     }
     return stringo;
     }
 });
+var intval;
 function startTimer(duration, display) {
     var start = Date.now(),
         diff,
@@ -91,23 +89,23 @@ function startTimer(duration, display) {
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
-            start = Date.now() + 1000;
+            failure();
+            clearInterval(intval);
+
         }
 
 
     }
     // we don't want to wait a full second before the timer starts
     timer();
-    setInterval(timer, 1000);
+    intval = setInterval(timer, 1000);
 }
-
-window.onload = function () {
-    var fiveMinutes = 60 * 0.5,
+    window.onload = function () {
+        var fiveMinutes = 60 * 0.5,
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-    load();
-};
-
+        startTimer(fiveMinutes, display);
+        load();
+    };
 function load(){
   $('#tweetDisplay').text(tweetguess.tweet);
   $('#answer0').text(tweetguess.persons[0]);
@@ -115,7 +113,6 @@ function load(){
   $('#answer2').text(tweetguess.persons[2]);
   $('#answer3').text(tweetguess.persons[3]);
 }
-
 function scoreStat(){
 	if(tweetguess.right_answer == stringo){
     score = (score + 100);
@@ -124,8 +121,20 @@ function scoreStat(){
     }
   }
 
+
 $(document).bind('keypress', "a+ctrl", function(){
    $("#tweetDisplay").addClass("rainbow");
 });
 
+function sucess(){
+    $("#status").css('color', '#3ecd15');
+    $("#status").addClass("tada animated");
+    $("#status").html("Right!");
+}
+function failure(){
+    $("#status").css('color', '#c50e14');
+    $("#status").addClass("tada animated");
+    $("#status").html("Wrong!")
+    doneTheStuff = true;
+}
 });

@@ -178,7 +178,12 @@ float: right;
   20% {
     transform: rotate3d(0, 0, 1, 15deg);
   }
-
+  .timer_red{
+    color:red;
+   }
+   .blinker {
+    animation: blinker 1s linear infinite;
+   }
   40% {
     transform: rotate3d(0, 0, 1, -10deg);
   }
