@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	$.get('localhost:2015/getTweet', function(data) {
+	console.log('ready');
+	$.get('http://kes:80/getTweet', function(data) {
+		console.log(data);
 	  $('#tweetDisplay').text(data.tweet);
 		$('.buttonz').each(function(i, item) {
 			$(this).text(data.people[i]);
@@ -19,7 +21,7 @@ $(document).ready(function() {
 
 		$('.buttonz').click(function() {
 			clearTimeout(t);
-			$.post('localhost:2015/verify&id=' + data.id, function(aw) {
+			$.post('http://kes:80/verify&id=' + data.id, function(aw) {
 				var right_answer =  $('.buttonz:eq(' + aw + ')');
 				var wrong_answer =  $('.buttonz').not(':eq(' + aw + ')');
 				wrong_answer.fadeTo("fast", 0.2);
