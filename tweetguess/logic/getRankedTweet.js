@@ -26,10 +26,10 @@ module.exports = {
 
               var res2 = res1[random];
 
-              var whatToSend = [
-                res2.text,
-                res2.tweetId
-              ];
+							var whatToSend = {
+								'tweet': res2.text,
+								'id': res2.tweetId
+							};
 
               callback(whatToSend);
 
@@ -60,8 +60,7 @@ module.exports = {
           if(error){
             console.log("Unable to access collection!");
           }else if (result.length) {
-            for (var i = 0; i < result.length; i += 1){
-              //console.log(result[i].name);
+            for (var i = 0; i < ((result.length > 4)?4:result.length); i += 1){
               sources[i] = result[i].name;
             }
             callback(sources);

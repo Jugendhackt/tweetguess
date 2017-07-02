@@ -5,14 +5,14 @@ var ranked = require('../logic/getRankedTweet');
 
 router.get('/', function(req, res, next) {
 
-  var toSend = [];
+  var toSend = {};
 
   setTimeout(function(){
     ranked.getRanked(function(whatToSend){
-      toSend[1] = whatToSend;
+      toSend = whatToSend;
       setTimeout(function(){
         ranked.getSources(function(sources){
-          toSend[0] = sources;
+          toSend.people = sources;
         });
         setTimeout(function(){
           res.send(toSend);
