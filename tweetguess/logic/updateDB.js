@@ -66,6 +66,7 @@ function insert(ret){
         name:ret.name,
         handle:ret.handle,
         id:ret.id,
+        tweetId:ret.tweetId,
         retweet_count:ret.retweet_count,
         text:ret.text,
         links:ret.links
@@ -73,6 +74,7 @@ function insert(ret){
         name:ret.name,
         handle:ret.handle,
         id:ret.id,
+        tweetId:ret.tweetId,
         retweet_count:ret.retweet_count,
         text:ret.text,
         links:ret.links
