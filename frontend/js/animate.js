@@ -127,10 +127,11 @@ function load(){
   $('#answer3').text(tweetguess.persons[3]);
 }
 
-
-$(document).bind('keypress', "a+ctrl", function(){
-   $("#tweetDisplay").addClass("rainbow");
-});
+// much bugs right here
+Mousetrap.bind('ctrl+a', function(e) {
+    $("#tweetDisplay").addClass("rainbow");
+    return false;
+ });
 
 function sucess(){
     $("#status").css('color', '#3ecd15');
