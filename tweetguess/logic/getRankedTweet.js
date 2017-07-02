@@ -3,9 +3,9 @@
 var mongo = require('mongodb');
 var alasql = require('alasql');
 
-//module.exports = {
-  //getRanked : function(){
-  function getRanked(){
+module.exports = {
+  getRanked : function(callback){
+  ///function getRanked(callback){
     var mongoClient = mongo.MongoClient;
 
     var url = "mongodb://localhost:27017/local";
@@ -15,22 +15,26 @@ var alasql = require('alasql');
         console.log("Unable to connect to database, error: ", error);
       }else {
 
-        var sources = getSources();
-
-        setTimeout(function(){
-
-          console.log(sources);
-
-          db.collection('tweets').find({
-            name: sources
-          }).toArray(function(error, result){
+          db.collection('tweets').find({}).toArray(function(error, result){
             if(error){
               console.log("Unable to access collection!");
             }else if (result.length) {
 
-              var res1 = alasql('SELECT * FROM ? ORDER BY retweet_count',[result]).reverse().slice(0,5);
+              var res1 = alasql('SELECT * FROM ? ORDER BY retweet_count',[result]).reverse().slice(0,36);
 
-              console.log(res1);
+              var whatToSend = [];
+
+              for (var i = 0; i < 4; i += 1){
+                var random = Math.floor(Math.random() * 35) + 1;
+                whatToSend[i] = res1[random];
+              }
+
+              for (var i = 0; i < whatToSend.length; i += 1){
+                //console.log(whatToSend[i].retweet_count);
+                //console.log(whatToSend[i].name);
+              }
+
+              callback(whatToSend);
 
             }else {
               console.log("No documents found!");
@@ -38,19 +42,21 @@ var alasql = require('alasql');
 
             db.close();
           });
-        }, 1000);
+
       }
     });
+  },
+  getOptions : function(callback){
+    callback(getSources());
   }
-//};
-getRanked();
+};
 
 function getSources(){
   var mongoClient = mongo.MongoClient;
 
   var url = "mongodb://localhost:27017/local";
 
-  var sources = {};
+  var sources = [];
 
   mongoClient.connect(url, function(error, db){
     if(error){
@@ -62,9 +68,10 @@ function getSources(){
           console.log("Unable to access collection!");
         }else if (result.length) {
           for (var i = 0; i < result.length; i += 1){
-            console.log(result[i].name);
+            //console.log(result[i].name);
             sources[i] = result[i].name;
           }
+          return sources;
 
         }else {
           console.log("No documents found!");
@@ -74,5 +81,4 @@ function getSources(){
       });
     }
   });
-  return sources;
 }

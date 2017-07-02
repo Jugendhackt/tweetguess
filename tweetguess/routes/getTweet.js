@@ -3,9 +3,22 @@ var router = express.Router();
 
 var ranked = require('../logic/getRankedTweet');
 
-/* Send initial variables to frontend. */
-router.post('/', function(req, res, next) {
-  res.send();
+router.get('/', function(req, res, next) {
+
+  var toSend = [];
+
+  setTimeout(function(){
+    ranked.getRanked(function(whatToSend){
+      toSend[0] = whatToSend;
+    }, 1000);
+    setTimeout(function(){
+      ranked.getOptions(function(sources){
+        toSend[1] = sources;
+      });
+    }, 1000);
+  });
+  
+  res.send(toSend);
 });
 
 module.exports = router;
