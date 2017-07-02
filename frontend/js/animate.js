@@ -1,7 +1,5 @@
 $(document).ready(function() {
-	console.log('ready');
 	$.get('http://kes:80/getTweet', function(data) {
-		console.log(data);
 	  $('#tweetDisplay').text(data.tweet);
 		$('.buttonz').each(function(i, item) {
 			$(this).text(data.people[i]);
@@ -17,7 +15,7 @@ $(document).ready(function() {
 			$('#time').text(duration);
 		};
 
-		timer(30, $('#time'));
+		timer();
 
 		$('.buttonz').click(function() {
 			clearTimeout(t);
