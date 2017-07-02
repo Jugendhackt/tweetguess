@@ -1,7 +1,5 @@
 $(document).ready(function() {
-	console.log('ready');
 	$.get('http://kes:80/getTweet', function(data) {
-		console.log(data);
 	  $('#tweetDisplay').text(data.tweet);
 		$('.buttonz').each(function(i, item) {
 			$(this).text(data.people[i]);
