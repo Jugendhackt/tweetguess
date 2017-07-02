@@ -1,207 +1,175 @@
 <!DOCTYPE html>
+<!-- hungarian quality software -->
 <html class="full" lang="de">
-<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+				<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
 
-<head>
+				<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+								<meta charset="utf-8">
+								<meta http-equiv="X-UA-Compatible" content="IE=edge">
+								<meta name="viewport" content="width=device-width, initial-scale=1">
+								<meta name="description" content="">
+								<meta name="author" content="">
 
-    <link rel="icon" href="logo JugendHackt.png">
-    <title>Tweetguesser</title>
-
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/the-big-picture.css" rel="stylesheet">
+								<link rel="icon" href="logo JugendHackt.png">
+								<title>Tweetguesser</title>
 
 
+								<!-- Bootstrap Core CSS -->
+								<link href="css/bootstrap.min.css" rel="stylesheet">
+
+								<!-- Custom CSS -->
+								<link href="css/the-big-picture.css" rel="stylesheet">
 
 
-    <!-- Custom CSS -->
-    <link href="css/animate.css" rel="stylesheet">
-<style media="screen">
+								<!-- jQuery -->
+								<script src="js/jquery.js"></script>
+								<script src="js/jquery-ui.js"></script>
+								<!-- Bootstrap Core JavaScript -->
+								<script src="js/bootstrap.min.js"></script>
+								<script src="js/animate.js"></script>
+
+
+								<!-- Custom CSS -->
+								<link href="css/animate.css" rel="stylesheet">
+								<style media="screen">
 #flieg {
-  position: absolute;
-  float: left;
-   z-index: 1000;
+				position: absolute;
+				float: left;
+				z-index: 1000;
 }
-</style>
-    <script type="text/javascript">
-    var flag = false;
-    function iconHover() {
-      if (flag == false) {
-        $(document).bind('mousemove', function(e){
-            $('#flieg').css({
-               left:  e.pageX - 1200,
-               top:   e.pageY - 100
-            });
-        });
-        flag = true;
-      } else if (flag == true) {
-        $(document).off();
-        flag = false;
-      }
-    }
-    </script>
+								</style>
+								<script type="text/javascript">
+var flag = false;
+function iconHover() {
+				if (flag == false) {
+								$(document).bind('mousemove', function(e){
+												$('#flieg').css({
+																left:  e.pageX - 1200,
+																top:   e.pageY - 100
+												});
+								});
+								flag = true;
+				} else if (flag == true) {
+								$(document).off();
+								flag = false;
+				}
+}
+								</script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+								<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+								<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+								<!--[if lt IE 9]>
+								<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+								<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+								<![endif]-->
 
-</head>
+				</head>
 
-<body>
+				<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="https://github.com/blitze299/tweetguess">Tweetguesser</a>
-            </div>
-<!-- <p class=" navbar-right"> <a href="https://github.com/blitze299/tweetguess#twitter-guessing-thing-random" class="navbar-brand" style="color:#fff">Infos</a></p> -->
-        </div>
-        <!-- /.container -->
-    </nav>
+								<!-- Navigation -->
+								<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+												<div class="container">
+																<!-- Brand and toggle get grouped for better mobile display -->
+																<div class="navbar-header">
+																				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+																								<span class="sr-only">Toggle navigation</span>
+																								<span class="icon-bar"></span>
+																								<span class="icon-bar"></span>
+																								<span class="icon-bar"></span>
+																				</button>
+																				<a class="navbar-brand" href="https://github.com/blitze299/tweetguess">Tweetguesser</a>
+																</div>
+																<!-- <p class=" navbar-right"> <a href="https://github.com/blitze299/tweetguess#twitter-guessing-thing-random" class="navbar-brand" style="color:#fff">Infos</a></p> -->
+												</div>
+												<!-- /.container -->
+								</nav>
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-1">
-          </br></br>
-            <font color=#4099ff><h2>Tweetguesser</h2></font>
-          </div>
-          <div class="col-sm-10"></div>
-          <div class="col-sm-1">
-          <div  id="flieg" onclick="iconHover()"><img src="logo JugendHackt.png" height="100px" width="125px"></div>
-          </div>
-          </div>
-          </div>
-          <hr>
-        </br>
+								<!-- Page Content -->
+								<div class="container">
+												<div class="row">
+																<div class="col-sm-1">
+																				</br></br>
+																				<font color=#4099ff><h2>Tweetguesser</h2></font>
+																</div>
+																<div class="col-sm-10"></div>
+																<div class="col-sm-1">
+																				<div  id="flieg" onclick="iconHover()"><img src="logo JugendHackt.png" height="100px" width="125px"></div>
+																</div>
+												</div>
+								</div>
+								<hr>
+								</br>
 
-              <!-- /.container -->
-          <div class="container">
-          <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
+								<!-- /.container -->
+								<div class="container">
+												<div class="row">
+																<div class="col-sm-1"></div>
+																<div class="col-sm-10">
 
-          <div class="panel panel-default text-left animated zoomIn">
-            <div class="panel-body" id="twtContainer">
+																				<div class="panel panel-default text-left">
+																								<div class="panel-body" id="twtContainer">
 
-              <div class="text-center">
-              <h3><font color=#4099ff><< </font><div style="display:inline" id="tweetDisplay"> If Republican Senators are unable to pass what they are working on now, they should immediately REPEAL, and then REPLACE at a later date! </div><font color=#4099ff> >></font></h3>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-1"></div>
-      </div>
- <div class="animated tada text-center" style="margin: 0px; padding: 0px;">
-    <h2 id="status">&nbsp;&nbsp;&nbsp;</h2>
-</div>
+																												<div class="text-center">
+																																<h3><font color=#4099ff><< </font><div style="display:inline" id="tweetDisplay"><div><font color=#4099ff> >></font></h3>
+																												</div>
+																								</div>
+																				</div>
+																</div>
+																<div class="col-sm-1"></div>
+												</div>
+												<div class="animated tada text-center" style="margin: 0px; padding: 0px;">
+																<h2 id="status">&nbsp;&nbsp;&nbsp;</h2>
+												</div>
 
-  <hr>
-    <div class="container">
-    <div class="row">
-  <div class="col-sm-2"></div>
-  <div class="col-sm-4">
-    <div class="panel panel-default animated slideInLeft">
-      <div class="panel-body buttonz" id="panel1">
-        <div class="text-center">
-        <h5 id="answer0">Button 1</h5>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4"></div>
+												<hr>
+												<div class="container">
+																<div class="row">
+																				<div class="col-sm-2"></div>
+																				<div class="col-sm-4">
+																								<div class="panel panel-default animated slideInLeft">
+																												<div class="panel-body buttonz" id="panel1">
+																												</div>
+																								</div>
+																				</div>
+																				<div class="col-sm-4"></div>
 
 
+																				<div class="col-sm-4">
+																								<div class="panel panel-default text-left animated slideInRight">
+																												<div class="panel-body buttonz" id="panel2">
+																												</div>
+																								</div>
+																				</div>
+																				<div class="col-sm-2"></div>
+																</div>
+
+																<div class="row">
+																				<div class="col-sm-2"></div>
+																				<div class="col-sm-4">
+																								<div class="panel panel-default text-left animated slideInLeft">
+																												<div class="panel-body buttonz" id="panel3">
+																												</div>
+																								</div>
+																				</div>
+																				<div class="col-sm-4"></div>
 
 
-
-
-<div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInRight">
-  <div class="panel-body buttonz" id="panel2">
-    <div class="text-center">
-    <h5 id="answer1">Button 2</h5>
-  </div>
-  </div>
-</div>
-</div>
-<div class="col-sm-2"></div>
-</div>
-</div>
-
-
-
-
-<div class="container">
-<div class="row">
-<div class="col-sm-2"></div>
-<div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInLeft">
-  <div class="panel-body buttonz" id="panel3">
-    <div class="text-center">
-    <h5 id="answer2">Button 3</h5>
-  </div>
-  </div>
-</div>
-</div>
-<div class="col-sm-4"></div>
-
-
-
-
-
-
-<div class="col-sm-4">
-<div class="panel panel-default text-left animated slideInRight">
-  <div class="panel-body buttonz" id="panel4">
-    <div class="text-center">
-    <h5 id="answer3">Button 4</h5>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-2"></div>
-</div>
-</div>
-<div class="container">
-  <div class="text-center">
-<font color=#1da1f2><h4> Time left: <span style="display:inline" id="time">1</span>s  |  Score: <span style="display:inline" id="score">0</span> </h4></font>
-  </div>
-</div>
-
-        <!-- /.row -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui.js"></script>
-
-
-    <script type="text/javascript" src="/js/countdown.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/animate.js"></script>
-
-</body>
+																				<div class="col-sm-4">
+																								<div class="panel panel-default text-left animated slideInRight">
+																												<div class="panel-body buttonz" id="panel4">
+																												</div>
+																								</div>
+																				</div>
+																				<div class="col-sm-2"></div>
+																</div>
+												</div>
+												<div class="container">
+																<div class="text-center">
+																				<font color=#1da1f2><h4> Time left: <span style="display:inline" id="time">0</span>s  |  Score: <span style="display:inline" id="score">0</span> </h4></font>
+																</div>
+												</div>
+				</body>
 
 </html>
