@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$.get('localhost:3000/getTweet', function(data) {
+	$.get('localhost:2015/getTweet', function(data) {
 	  $('#tweetDisplay').text(data.tweet);
 		$('.buttonz').each(function(i, item) {
 			$(this).text(data.people[i]);
@@ -19,25 +19,23 @@ $(document).ready(function() {
 
 		$('.buttonz').click(function() {
 			clearTimeout(t);
-			$.post('localhost:3000/verify',
-				settings: { 'id': data.id },
-				function(aw) {
-					var right_answer =  $('.buttonz:eq(' + aw + ')');
-					var wrong_answer =  $('.buttonz').not(':eq(' + aw + ')');
-					wrong_answer.fadeTo("fast", 0.2);
-					right_answer.animate({
-							backgroundColor: '#4099ff'
-						},
-						1000
-					);
-					if (this.isEqualNode(right_answer[0])) {
-						$("#status").css('color', '#3ecd15');
-						$("#status").html("Right!");
-						$('#score').text(duration);
-					} else {
-						$("#status").css('color', '#c50e14');
-						$("#status").html("Wrong!");
-					}
+			$.post('localhost:2015/verify&id=' + data.id, function(aw) {
+				var right_answer =  $('.buttonz:eq(' + aw + ')');
+				var wrong_answer =  $('.buttonz').not(':eq(' + aw + ')');
+				wrong_answer.fadeTo("fast", 0.2);
+				right_answer.animate({
+						backgroundColor: '#4099ff'
+					},
+					1000
+				);
+				if (this.isEqualNode(right_answer[0])) {
+					$("#status").css('color', '#3ecd15');
+					$("#status").html("Right!");
+					$('#score').text(duration);
+				} else {
+					$("#status").css('color', '#c50e14');
+					$("#status").html("Wrong!");
+				}
 			});
 		});
 	});

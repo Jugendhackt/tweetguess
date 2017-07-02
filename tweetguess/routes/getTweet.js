@@ -9,16 +9,17 @@ router.get('/', function(req, res, next) {
 
   setTimeout(function(){
     ranked.getRanked(function(whatToSend){
-      toSend[0] = whatToSend;
-    }, 1000);
-    setTimeout(function(){
-      ranked.getOptions(function(sources){
-        toSend[1] = sources;
-      });
-    }, 1000);
+      toSend[1] = whatToSend;
+      setTimeout(function(){
+        ranked.getSources(function(sources){
+          toSend[0] = sources;
+        });
+        setTimeout(function(){
+          res.send(toSend);
+        }, 300);
+      }, 300);
+    }, 300);
   });
-  
-  res.send(toSend);
 });
 
 module.exports = router;
