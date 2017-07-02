@@ -94,6 +94,7 @@ function startTimer(duration, display) {
            score = (score + (100 - (60/result)));
            score = Math.round(score);
            $('#score').text(score);
+
        } else {
            $("#status").css('color', '#c50e14');
            $("#status").html("Wrong!")
