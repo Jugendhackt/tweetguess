@@ -82,5 +82,5 @@ function insert(ret){
         db.close()
       });
     });
-  }, 500);
+  }, 1500);
 }
