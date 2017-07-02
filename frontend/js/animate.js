@@ -15,7 +15,7 @@ $(document).ready(function() {
 			$('#time').text(duration);
 		};
 
-		timer(30, $('#time'));
+		timer();
 
 		$('.buttonz').click(function() {
 			clearTimeout(t);
