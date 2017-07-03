@@ -1,6 +1,6 @@
 # Tweetguesser
 
-Das Twitter Ratespiel
+Das Tweet Ratespiel
 ------------------------------------------------------------------
 ## Idee
 Es wird ein Tweet angezeigt und du kannst zwischen 4 bekannten Twitterusern ,die diesen verfasst haben könnten entscheiden.
