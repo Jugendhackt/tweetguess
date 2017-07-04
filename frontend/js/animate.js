@@ -148,7 +148,7 @@ function failure(){
 function timeFailure(){
     $("#status").css('color', '#c50e14');
     $("#status").addClass("tada animated");
-    $("#status").html("<b>Too long!</b>!")
+    $("#status").html("<b>Too long!</b>")
     $('.buttonz').fadeTo("fast", 0.2);
         doneTheStuff = true;
 }
