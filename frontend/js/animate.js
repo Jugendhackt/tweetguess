@@ -133,6 +133,7 @@ Mousetrap.bind('ctrl+a', function(e) {
     return false;
  });
 
+ // functions to signalize an event TODO: Reset that all after an right answer.
 function sucess(){
     $("#status").css('color', '#3ecd15');
     $("#status").addClass("tada animated");
@@ -148,7 +149,7 @@ function failure(){
 function timeFailure(){
     $("#status").css('color', '#c50e14');
     $("#status").addClass("tada animated");
-    $("#status").html("<b>Too long!</b>")
+    $("#status").html("<b>Too slow!</b>")
     $('.buttonz').fadeTo("fast", 0.2);
         doneTheStuff = true;
 }
