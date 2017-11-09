@@ -27,15 +27,16 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 }
 http.send(params);
 
+  //insert (static) Tweet here
  var tweetguess = {
- 'tweet': 'Lorem ipsum dolor sit amet, consectetu Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et mahezh',
+ 'tweet': 'Getting ready to leave for South Korea and meetings with President Moon, a fine gentleman. We will figure it all out!',
  'persons': [
      'Mark Zuckerberg',
      'Donald Trump',
      'Angela Merkel',
      'Frauke Petry'
  ],
- 'right_answer': 'Mark Zuckerberg'
+ 'right_answer': 'Donald Trump'
  };
 
  var doneTheStuff;
