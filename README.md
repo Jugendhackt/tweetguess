@@ -9,7 +9,7 @@ Es wird ein Tweet angezeigt und du kannst zwischen 4 bekannten Twitterusern ,die
 Für jeden Tweet hat man 30 Sekunden den Verfasser zu erraten. Ist die Antwort richtig, wird einem die verbleibende Zeit als Punkte gutgeschrieben.
 
 ## Ziel
-Spielerisch auf fragwürdigen Content aufmerksam machen, der heutzutage überall auf Socialmedia Plattformen gepostet wird.
+Auf fragwürdigen Content aufmerksam machen, der heutzutage überall auf Socialmedia Plattformen gepostet wird.
 
 ## Tech
 Für das Frontend wurde das Bootstrap und jQuery Framework benutzt.
