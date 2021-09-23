@@ -7,8 +7,8 @@ module.exports = {
   getTweet : function(userName, callback) {
   	var OAuth = require('oauth').OAuth2;
 
-  	var oauth = new OAuth('SjzHdKhqr5zk4Cbm3ohZASYwY',
-  		'xkhBw1SQ7ETkZrixgglsVPc8cyFQuuyZz1jW0Fm81SF87DY8DX',
+  	var oauth = new OAuth('WtarLNE3DwNG7McdL8PXbqWtt',
+  		'iPp1IlMcTMtbeQ44LZmHTNgTqklwHwV1uQqgAxqRbyXuXwKemp',
   		'https://api.twitter.com/',
   		null,
   		'oauth2/token',
@@ -19,7 +19,7 @@ module.exports = {
   		{'grant_type':'client_credentials'},
   		function (e, access_token, refresh_token, results) {
   			oauth._useAuthorizationHeaderForGET = true;
-  			oauth.get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + userName + '&count=200&exclude_replies=true&include_rts=false&trim_user=false',
+  			oauth.get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + userName + '&count=200&exclude_replies=true&include_rts=false&trim_user=false&tweet_mode=extended',
   				access_token,
   				function(ret, res, resp) {
   					if (ret != null) {

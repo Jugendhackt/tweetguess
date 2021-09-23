@@ -3,13 +3,16 @@ module.exports = {
 
   processTweet: function(tweet, callback) {
   	var ret = {};
-  	ret.name = tweet.user.name;
-  	ret.handle = tweet.user.screen_name;
-  	ret.id = tweet.user.id;
-    ret.tweetId = tweet.id;
-  	ret.retweet_count = tweet.retweet_count;
-  	ret.text = tweet.text;
-  	ret.links = tweet.entities.urls;
-  	callback(ret);
+	  if (tweet.entities.urls[0] != undefined){
+		  ret.links = tweet.entities.urls[0]['url'];
+	  }
+	  ret.name = tweet.user.name;
+	  ret.created = tweet.created_at;
+	  ret.handle = tweet.user.username;
+	  ret.id = tweet.user.id;
+	  ret.tweetId = tweet.id_str;
+	  ret.retweet_count = tweet.retweet_count;
+	  ret.text = tweet.full_text;
+	  callback(ret);
   }
 };
